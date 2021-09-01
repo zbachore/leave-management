@@ -16,7 +16,7 @@ public class LeaveAllocationVM
 
         public EmployeeVM Employee { get; set; }
         public string EmployeeId { get; set; }
-        public DetailsLeaveTypeVM LeaveType { get; set; }
+        public LeaveTypeVM LeaveType { get; set; }
         public string LeaveTypeId { get; set; }
 
         public IEnumerable<SelectListItem> Employees { get; set; }
