@@ -43,10 +43,10 @@ namespace leave_management.Controllers
         }
 
         // GET: LeaveTypes/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+        //public ActionResult Create()
+        //{
+        //    return View();
+        //}
 
         // POST: LeaveTypes/Create
         [HttpPost]
@@ -118,20 +118,18 @@ namespace leave_management.Controllers
             }
         }
 
+        
+        
         // GET: LeaveTypes/Delete/5
         public ActionResult Delete(int id)
         {
-            var leavetype = _repo.FindById(id);
             if (!_repo.isExists(id))
             {
                 return NotFound();
             }
-            var isSuccess = _repo.Delete(leavetype);
-            if (!isSuccess)
-            {
-                return BadRequest();
-            }
-            return RedirectToAction(nameof(Index));
+            var leaveType = _repo.FindById(id);
+            var model = _mapper.Map<LeaveTypeVM>(leaveType);
+            return View(model);
         }
 
         // POST: LeaveTypes/Delete/5
@@ -143,7 +141,7 @@ namespace leave_management.Controllers
             {
                 // TODO: Add delete logic here
                 var leavetype = _repo.FindById(id);
-                if (leavetype == null)
+                if(leavetype == null)
                 {
                     return NotFound();
                 }
