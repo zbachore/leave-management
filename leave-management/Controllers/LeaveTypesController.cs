@@ -43,10 +43,10 @@ namespace leave_management.Controllers
         }
 
         // GET: LeaveTypes/Create
-        //public ActionResult Create()
-        //{
-        //    return View();
-        //}
+        public ActionResult Create()
+        {
+            return View();
+        }
 
         // POST: LeaveTypes/Create
         [HttpPost]
